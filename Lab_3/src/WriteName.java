@@ -9,11 +9,11 @@ public class WriteName {
 		Scanner getName = new Scanner(System.in);
 		
 		System.out.print("Please enter your name: ");
-		String name = getName.next();
+		String name = getName.next(),
+			   fileName = "./" + name + ".txt";
 		getName.close();
 		
-		File nameFile = new File("./name.txt");
-		if (nameFile.exists()) return;
+		File nameFile = new File(fileName);
 		
 		PrintWriter nameWriter = new PrintWriter(nameFile);
 		nameWriter.print(name);
