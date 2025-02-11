@@ -11,7 +11,7 @@ public class Main {
 			
 			while (input.hasNext()) {
 				String word = input.next();
-				if (word.length() <= 4) output.println(word);
+				if (word.length() > 4) output.println(word);
 			}
 			
 			input.close();
