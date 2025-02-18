@@ -6,15 +6,17 @@ import java.io.FileNotFoundException;
 public class Main {
 	public static void main(String args[]) throws FileNotFoundException {
 		
-			Scanner input = new Scanner(new File("./input.txt"));
-			PrintWriter output = new PrintWriter("./output.txt");
+		// take input from file and put it in scanner, create new file for output
+		Scanner input = new Scanner(new File("./input.txt"));
+		PrintWriter output = new PrintWriter("./output.txt");
+		
+		// check each word from input, only add to output if longer than 4 characters
+		while (input.hasNext()) {
+			String word = input.next();
+			if (word.length() > 4) output.println(word);
+		}
 			
-			while (input.hasNext()) {
-				String word = input.next();
-				if (word.length() > 4) output.println(word);
-			}
-			
-			input.close();
-			output.close();			
+		input.close();
+		output.close();			
 	}
 }
