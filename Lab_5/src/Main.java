@@ -20,38 +20,25 @@ public class Main {
 			System.out.print("Enter your choice: ");
 			Scanner input = new Scanner(System.in);
 			int choice = input.nextInt();
-			input.close();
 			
 			switch (choice) {
 				case 1:
-//					System.out.print("Enter grade: ");
-//					grades.add(input.nextDouble());
-//					System.out.println("Grade added!\n");
-					addGrade(grades);
+					addGrade(grades, input);
 					break;
 				case 2:
-					System.out.println("Grades:");
-					for (int i = 0; i < grades.size(); i++) 
-						System.out.println((i + 1) + ": " + grades.get(i));
-					System.out.print("Which record to remove? ");
-					choice = input.nextInt();
-					grades.remove(choice - 1);
-					System.out.println("Grade removed!\n");
+					removeGrade(grades, input);
 					break;
 				case 3:
-					// update
+					updateGrade(grades, input);
 					break;
 				case 4:
-					// display highest and lowest
-//					System.out.println("Highest grade: ")
+					displayHighestAndLowest(grades);
 					break;
 				case 5:
-					// calculate average
+					calculateAverage(grades);
 					break;
 				case 6:
-					System.out.println("Grades:");
-					for (int i = 0; i < grades.size(); i++) 
-						System.out.println((i + 1) + ": " + grades.get(i));
+					displayGrades(grades);
 					break;
 				case 7:
 					input.close();
@@ -60,11 +47,75 @@ public class Main {
 			}
 		}
 	}
-	public static void addGrade(ArrayList<Double> grades) {
-		Scanner input = new Scanner(System.in);
+	
+	public static void addGrade(ArrayList<Double> grades, Scanner input) {
+		
 		System.out.print("Enter grade: ");
 		grades.add(input.nextDouble());
-		System.out.println("Grade added!\n");
-		input.close();
+		
+		System.out.println("Grade added!");
+		System.out.println();
+	}
+	
+	public static void removeGrade(ArrayList<Double> grades, Scanner input) {
+		
+		displayGrades(grades);
+		
+		System.out.print("Which record to remove? ");
+		int choice = input.nextInt();
+		
+		grades.remove(choice - 1);
+		
+		System.out.println("Grade removed!");
+		System.out.println();
+	}
+	
+	public static void updateGrade(ArrayList<Double> grades, Scanner input) {
+		
+		displayGrades(grades);
+		
+		System.out.print("Which record to update? ");
+		int choice = input.nextInt();
+		
+		System.out.print("Update grade to what? ");
+		double newGrade = input.nextDouble();
+		
+		grades.set(choice - 1, newGrade);
+		
+		System.out.println("Grade updated!");
+		System.out.println();
+	}
+	
+	public static void displayHighestAndLowest(ArrayList<Double> grades) {
+		
+		double highest = Double.MIN_VALUE, lowest = Double.MAX_VALUE;
+		
+		for (double grade : grades) {
+			if (grade > highest) highest = grade;
+			if (grade < lowest) lowest = grade;
+		}
+		
+		System.out.println("Highest grade: " + highest);
+		System.out.println("Lowest grade: " + lowest);
+		System.out.println();
+	}
+	
+	public static void calculateAverage(ArrayList<Double> grades) {
+		
+		double average = 0;
+		
+		for (double grade : grades) average += grade;
+		
+		System.out.println("The average grade is: " + (average / grades.size()));
+		System.out.println();
+	}
+	
+	public static void displayGrades(ArrayList<Double> grades) {
+		
+		System.out.println("Grades:");
+		
+		for (int i = 0; i < grades.size(); i++) 
+			System.out.println((i + 1) + ": " + grades.get(i));
+		System.out.println();
 	}
 }
