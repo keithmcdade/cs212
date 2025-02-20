@@ -9,6 +9,7 @@ public class Lab6Main {
         System.out.println(student1);
         System.out.println();
         System.out.println(student2);
+        System.out.println();
 
         System.out.println("student1 failed CS111...oops");
         student1.setGPA(2.0);
