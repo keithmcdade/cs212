@@ -30,7 +30,7 @@ public class Student {
 
 	// returns true if student GPA > 3.5 else false
 	public boolean isOnHonorRoll() {
-		return (this.gpa >= 3.5);
+		return (gpa >= 3.5);
 	}
 	
 	// overrides toString, returns student info as String
