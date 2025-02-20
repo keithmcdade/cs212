@@ -15,7 +15,8 @@ public class Main {
 				+ "4. Find highest and lowest grade\n"
 				+ "5. Calculate average grade\n"
 				+ "6. Display all grades\n"
-				+ "7. Exit\n\n");		
+				+ "7. Exit\n");
+		System.out.println();
 		
 		// loops until user exits program
 		while (true) {
@@ -129,7 +130,7 @@ public class Main {
 	public static void calculateAverage(ArrayList<Double> grades) {
 		
 		// use java.text.DecimalFormat to display grades with 2 decimal places rounded
-		DecimalFormat rounded = new DecimalFormat("###.##");
+		DecimalFormat rounded = new DecimalFormat("#.##");
 		double average = 0;
 		
 		// iterate grades array to add grades to average then dived by grades.size()
