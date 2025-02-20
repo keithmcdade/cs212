@@ -4,13 +4,6 @@ public class Student {
 	private String name, id;
 	private Double gpa;
 	
-	// default constructor
-	public Student() {
-		name = null;
-		id = null;
-		gpa = null;
-	}
-	
 	// parameterized constructor
 	public Student(String name, String id, double gpa) {
 		this.name = name;
